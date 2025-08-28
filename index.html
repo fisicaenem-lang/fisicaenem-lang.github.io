@@ -1,204 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Curso de Física ENEM</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
-    body {
-        background: url('https://img.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #333;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        min-height:100vh;
-        padding:20px;
-    }
-    header {text-align:center; margin-bottom:40px; background-color: rgba(255,255,255,0.85); padding:20px; border-radius:12px;}
-    header h1 {font-size:2.5rem; color:#1a1a1a;}
-    header p {font-size:1.1rem; color:#555; margin-top:10px;}
-    .grid-container {
-        display:grid;
-        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-        gap:25px;
-        width:100%;
-        max-width:1000px;
-    }
-    .card {
-        border-radius:12px;
-        padding:20px;
-        text-align:center;
-        transition: transform 0.4s, box-shadow 0.4s, background-color 0.4s;
-        cursor:pointer;
-        color:#fff;
-        box-shadow:0 6px 15px rgba(0,0,0,0.1);
-    }
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow:0 12px 25px rgba(0,0,0,0.2);
-    }
-    .card i {font-size:3rem; margin-bottom:15px;}
-    .card h2 {font-size:1.3rem; margin-bottom:10px;}
-    .card.classica {background-color:#1abc9c;}
-    .card.moderna {background-color:#3498db;}
-    .card.materiais {background-color:#9b59b6;}
-    .card.simulados {background-color:#e67e22;}
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+  body {
+    background: url('https://img.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 100vh; padding: 20px;
+  }
+  header { text-align: center; margin-bottom: 40px; background-color: rgba(255,255,255,0.88); padding: 20px; border-radius: 12px; }
+  header h1 { font-size: 2.5rem; color: #1a1a1a; }
+  header p { font-size: 1.1rem; color: #555; margin-top: 10px; }
 
-    footer {margin-top:50px; color:#fff; font-size:0.9rem; text-align:center; text-shadow: 1px 1px 2px #000;}
+  .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; width: 100%; max-width: 1100px; }
+  .card { border-radius: 14px; padding: 22px; text-align: center; transition: transform .35s, box-shadow .35s, background-color .35s; cursor: pointer; color: #fff; box-shadow: 0 6px 15px rgba(0,0,0,0.12); user-select: none; }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+  .card i { font-size: 2.4rem; margin-bottom: 12px; }
+  .card h2 { font-size: 1.25rem; margin-top: 4px; }
+  .card.classica { background: #1abc9c; }
+  .card.moderna { background: #3498db; }
+  .card.materiais { background: #9b59b6; }
+  .card.simulados { background: #e67e22; }
 
-    /* Modal */
-    .modal {
-        display:none;
-        position:fixed;
-        z-index:10;
-        left:0; top:0;
-        width:100%; height:100%;
-        background-color: rgba(0,0,0,0.7);
-        justify-content:center;
-        align-items:center;
-        padding:20px;
-        animation: fadeIn 0.4s ease;
-    }
-    .modal-content {
-        background-color:#fff;
-        padding:30px;
-        border-radius:12px;
-        max-width:700px;
-        width:100%;
-        position:relative;
-        max-height:80vh;
-        overflow-y:auto;
-        transform: scale(0.8);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    .modal.show .modal-content {
-        transform: scale(1);
-        opacity: 1;
-    }
-    .close {
-        position:absolute;
-        top:15px;
-        right:20px;
-        font-size:1.5rem;
-        cursor:pointer;
-        color:#555;
-    }
-    h3 {margin-top:15px; color:#1a73e8;}
-    p {margin-top:8px; line-height:1.5;}
-    ul {margin-top:8px; padding-left:20px;}
-    a {color:#1a73e8; text-decoration:none;}
-    a:hover {text-decoration:underline;}
+  footer { margin-top: 50px; color: #fff; font-size: .9rem; text-align: center; text-shadow: 1px 1px 2px #000; }
 
-    @keyframes fadeIn {
-        from {opacity:0;}
-        to {opacity:1;}
-    }
+  /* Modal */
+  .modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,.7); justify-content: center; align-items: center; padding: 20px; animation: fadeIn .35s ease; }
+  .modal[aria-hidden="false"] { display: flex; }
+  .modal-content { background: #fff; padding: 28px; border-radius: 14px; max-width: 850px; width: 100%; position: relative; max-height: 84vh; overflow-y: auto; transform: scale(.9); opacity: 0; transition: all .3s ease; }
+  .modal-content.show { transform: scale(1); opacity: 1; }
+  .close { position: sticky; top: -8px; float: right; font-size: 1.6rem; cursor: pointer; color: #666; background: transparent; border: none; }
+  h2 { color: #1a1a1a; margin-bottom: 6px; }
+  h3 { margin-top: 16px; color: #1a73e8; }
+  p { margin-top: 8px; line-height: 1.55; }
+  ul { margin-top: 8px; padding-left: 20px; }
+  li { margin: 6px 0; }
+  a { color: #1a73e8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .tips { background: #f7fbff; border: 1px solid #dbeafe; padding: 12px; border-radius: 10px; margin-top: 12px; }
+  .pdf-wrap { margin-top: 12px; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+  .pdf-wrap iframe { width: 100%; height: 70vh; border: 0; }
+  .muted { color: #666; font-size: .9rem; }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Curso de Física ENEM</h1>
-    <p>Estude de forma prática e direta, com materiais e simulados!</p>
+  <h1>Curso de Física ENEM</h1>
+  <p>Estude de forma prática e direta, com conteúdos, materiais e simulados oficiais.</p>
 </header>
 
 <div class="grid-container">
-    <div class="card classica" onclick="openModal('classica')">
-        <i class="fas fa-atom"></i>
-        <h2>Física Clássica</h2>
-    </div>
-    <div class="card moderna" onclick="openModal('moderna')">
-        <i class="fas fa-lightbulb"></i>
-        <h2>Física Moderna</h2>
-    </div>
-    <div class="card materiais" onclick="openModal('materiais')">
-        <i class="fas fa-book"></i>
-        <h2>Materiais de Estudo</h2>
-    </div>
-    <div class="card simulados" onclick="openModal('simulados')">
-        <i class="fas fa-pencil-alt"></i>
-        <h2>Simulados</h2>
-    </div>
+  <div class="card classica" data-tipo="classica" aria-label="Abrir Física Clássica">
+    <i class="fa-solid fa-atom" aria-hidden="true"></i>
+    <h2>Física Clássica</h2>
+  </div>
+  <div class="card moderna" data-tipo="moderna" aria-label="Abrir Física Moderna">
+    <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+    <h2>Física Moderna</h2>
+  </div>
+  <div class="card materiais" data-tipo="materiais" aria-label="Abrir Materiais de Estudo">
+    <i class="fa-solid fa-book" aria-hidden="true"></i>
+    <h2>Materiais de Estudo</h2>
+  </div>
+  <div class="card simulados" data-tipo="simulados" aria-label="Abrir Simulados">
+    <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+    <h2>Simulados</h2>
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal" id="modal">
-    <div class="modal-content" id="modalContent">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalText"></div>
-    </div>
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+  <div class="modal-content" id="modalContent">
+    <button class="close" id="fechar" title="Fechar">&times;</button>
+    <div id="modalText"></div>
+  </div>
 </div>
 
 <footer>
-    Desenvolvido por Lucas - <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a><br>
-    &copy; 2025 Curso de Física ENEM
+  Desenvolvido por Lucas — <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a><br />
+  &copy; 2025 Curso de Física ENEM
 </footer>
 
 <script>
-const modal = document.getElementById('modal');
-const modalContent = document.querySelector('.modal-content');
-const modalText = document.getElementById('modalText');
-
-// Conteúdos com links REAIS
-const conteudos = {
+  // ========= CONTEÚDOS (texto real + links) ========= //
+  const conteudos = {
     classica: `
-        <h2>Física Clássica</h2>
-        <h3>Mecânica</h3>
-        <p><a href="https://mundoeducacao.uol.com.br/fisica/mecanica.htm" target="_blank">Resumo de Mecânica (Mundo Educação)</a></p>
-        <h3>Termodinâmica</h3>
-        <p><a href="https://brasilescola.uol.com.br/fisica/termodinamica.htm" target="_blank">Leis da Termodinâmica (Brasil Escola)</a></p>
-        <h3>Ondulatória</h3>
-        <p><a href="https://mundoeducacao.uol.com.br/fisica/ondulatoria.htm" target="_blank">Estudo das Ondas (Mundo Educação)</a></p>
+      <h2 id="tituloModal">Física Clássica (ENEM)</h2>
+      <div class="tips"><strong>Como cai:</strong> interpretação de gráficos, unidades, ordem de grandeza e aplicações no cotidiano.</div>
+      <h3>Mecânica</h3>
+      <p><strong>Cinemática:</strong> velocidade média <code>v = \u0394s/\u0394t</code>; movimento uniformemente variado: <code>v = v_0 + at</code> e <code>s = s_0 + v_0t + (a t^2)/2</code>.</p>
+      <p><strong>Dinâmica (Leis de Newton):</strong> <code>\u2211F = m a</code>. Força de atrito: <code>F_at = \u03BC N</code>. Peso: <code>P = m g</code>.</p>
+      <p><strong>Energia e Trabalho:</strong> <code>E_c = (1/2) m v^2</code>, <code>E_p = m g h</code>, Conservação de energia mecânica (em sistemas sem dissipação).</p>
+      <ul>
+        <li>Colisões e quantidade de movimento: <code>\u2191</code> conservação do momento linear.</li>
+        <li>MCU: <code>a_c = v^2/r</code>; força centrípeta.</li>
+      </ul>
+
+      <h3>Termodinâmica</h3>
+      <p><strong>Calorimetria:</strong> <code>Q = m c \u0394T</code>; mudanças de fase: <code>Q = m L</code>.</p>
+      <p><strong>1ª Lei:</strong> <code>\u0394U = Q - W</code>; transformações (isotérmica, isobárica, isovolumétrica) e rendimento.</p>
+
+      <h3>Ondulatória e Óptica</h3>
+      <p>Relação fundamental: <code>v = \u03bb f</code>. Interferência, refração (Lei de Snell), espelhos e lentes delgadas: <code>1/f = 1/p + 1/p'</code>.</p>
+      <p class="muted">Para praticar: resolva questões antigas do ENEM focando interpretação de enunciados.</p>
+      <p>Leitura complementar: <a href="https://mundoeducacao.uol.com.br/fisica/mecanica.htm" target="_blank" rel="noopener">Resumo de Mecânica</a>, <a href="https://brasilescola.uol.com.br/fisica/termodinamica.htm" target="_blank" rel="noopener">Leis da Termodinâmica</a>, <a href="https://mundoeducacao.uol.com.br/fisica/ondulatoria.htm" target="_blank" rel="noopener">Ondulatória</a>.</p>
     `,
+
     moderna: `
-        <h2>Física Moderna</h2>
-        <h3>Relatividade</h3>
-        <p><a href="https://brasilescola.uol.com.br/fisica/teoria-da-relatividade.htm" target="_blank">Teoria da Relatividade</a></p>
-        <h3>Física Quântica</h3>
-        <p><a href="https://mundoeducacao.uol.com.br/fisica/fisica-quantica.htm" target="_blank">Princípios da Física Quântica</a></p>
-        <h3>Física Nuclear</h3>
-        <p><a href="https://brasilescola.uol.com.br/fisica/fisica-nuclear.htm" target="_blank">Introdução à Física Nuclear</a></p>
+      <h2 id="tituloModal">Física Moderna (ENEM)</h2>
+      <h3>Relatividade</h3>
+      <p>No ENEM, costuma aparecer em contexto histórico/tecnológico. Ideias-chave: <em>tempo e espaço não são absolutos</em>; <code>E = mc^2</code>; GPS e dilatação do tempo (qualitativo).</p>
+      <h3>Física Quântica</h3>
+      <p>Efeito fotoelétrico (<code>E = h f</code>), fótons, dualidade onda-partícula. Modelos atômicos (Dalton &rarr; Rutherford &rarr; Bohr).</p>
+      <h3>Física Nuclear</h3>
+      <p>Radioatividade (alfa, beta, gama), meia-vida, aplicações médicas e energéticas; riscos e armazenamento de resíduos.</p>
+      <p>Leituras: <a href="https://brasilescola.uol.com.br/fisica/teoria-da-relatividade.htm" target="_blank" rel="noopener">Relatividade</a>, <a href="https://mundoeducacao.uol.com.br/fisica/fisica-quantica.htm" target="_blank" rel="noopener">Quântica</a>, <a href="https://brasilescola.uol.com.br/fisica/fisica-nuclear.htm" target="_blank" rel="noopener">Nuclear</a>.</p>
     `,
+
     materiais: `
-        <h2>Materiais de Estudo</h2>
-        <ul>
-            <li><a href="https://www.sistemapoliedro.com.br/blog/apostila-enem-pdf-gratis" target="_blank">📘 Apostila ENEM completa (PDF gratuito)</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=PL8bJrQgRX2lSQ8w4N32Zp9XYg-p4N9XrR" target="_blank">🎥 Playlist vídeo aulas de Física ENEM</a></li>
-            <li><a href="https://descomplica.com.br/blog/enem/fisica/" target="_blank">📝 Resumos de Física para ENEM (Descomplica)</a></li>
-        </ul>
+      <h2 id="tituloModal">Materiais de Estudo</h2>
+      <ul>
+        <li>📘 <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener">Provas e gabaritos oficiais do ENEM (INEP)</a></li>
+        <li>🎥 <a href="https://pt.khanacademy.org/science/physics" target="_blank" rel="noopener">Khan Academy (Física em português)</a></li>
+        <li>🎥 <a href="https://pt.khanacademy.org/science/fisica-ensino-medio" target="_blank" rel="noopener">Khan Academy — Física Ensino Médio</a></li>
+      </ul>
+      <div class="tips">
+        <strong>Dica rápida:</strong> Estude por <em>blocos curtos</em> (25–30 min) e finalize cada bloco com 3 questões antigas sobre o mesmo assunto.
+      </div>
     `,
+
     simulados: `
-        <h2>Simulados</h2>
-        <p>Escolha um simulado real:</p>
-        <ul>
-            <li><a href="https://download.inep.gov.br/educacao_basica/enem/provas/2022/caderno_de_questoes_enem_2022.pdf" target="_blank">📄 Simulado ENEM 2022 (INEP - PDF Oficial)</a></li>
-            <li><a href="https://projetomedicina.com.br/provas/enem/" target="_blank">📄 Banco de Simulados ENEM - Projeto Medicina</a></li>
-            <li><a href="https://gabaritoenem.com.br/" target="_blank">📄 Gabaritos e Resoluções ENEM</a></li>
-        </ul>
-    `
-};
+      <h2 id="tituloModal">Simulados (Provas Reais)</h2>
+      <p>Visualize aqui no site uma prova oficial do INEP. Você também pode abrir em outra aba se preferir.</p>
+      <ul>
+        <li>📄 <a href="#" data-pdf="https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D1_CD4.pdf">ENEM 2023 — 1º dia (PDF oficial)</a></li>
+        <li>📄 <a href="#" data-pdf="https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf">ENEM 2022 — 2º dia (PDF oficial)</a></li>
+        <li>📄 <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos/2024" target="_blank" rel="noopener">Página com provas 2024 (todos os cadernos)</a></li>
+      </ul>
+      <div class="pdf-wrap" id="pdfWrap" hidden>
+        <iframe id="pdfFrame" title="Leitor de PDF do INEP" loading="lazy"></iframe>
+      </div>
+      <p class="muted">Se o PDF não carregar, clique com o botão direito no link e escolha <em>Abrir em nova guia</em>.</p>
+    `,
+  };
 
-function openModal(tipo) {
-    modal.style.display = 'flex';
-    modalContent.classList.add('show');
-    modalText.innerHTML = conteudos[tipo];
-}
+  // ========= MODAL ========= //
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modalContent');
+  const modalText = document.getElementById('modalText');
+  const btnFechar = document.getElementById('fechar');
 
-function closeModal() {
+  function openModal(tipo) {
+    const html = conteudos[tipo];
+    modalText.innerHTML = html || '<p>Conteúdo não encontrado.</p>';
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => modalContent.classList.add('show'));
+
+    // Ativa o leitor de PDF quando estiver na aba de simulados
+    if (tipo === 'simulados') {
+      const wrap = document.getElementById('pdfWrap');
+      const frame = document.getElementById('pdfFrame');
+      const firstLink = modalText.querySelector('[data-pdf]');
+      if (firstLink) {
+        frame.src = firstLink.getAttribute('data-pdf') + '#toolbar=1&navpanes=0&view=FitH';
+        wrap.hidden = false;
+      }
+      // Permite trocar o PDF clicando nos links
+      modalText.querySelectorAll('[data-pdf]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          frame.src = a.getAttribute('data-pdf') + '#toolbar=1&navpanes=0&view=FitH';
+          wrap.hidden = false;
+        });
+      });
+    }
+  }
+
+  function closeModal() {
     modalContent.classList.remove('show');
-    setTimeout(() => modal.style.display = 'none', 300);
-}
+    setTimeout(() => modal.setAttribute('aria-hidden', 'true'), 280);
+  }
 
-// Fechar modal clicando fora
-window.onclick = function(event) {
-    if(event.target === modal) closeModal();
-}
+  // Eventos
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openModal(card.dataset.tipo));
+  });
+  btnFechar.addEventListener('click', closeModal);
+  window.addEventListener('click', (ev) => { if (ev.target === modal) closeModal(); });
+  window.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
 </script>
-
 </body>
 </html>
