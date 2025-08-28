@@ -1,168 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Física ENEM</title>
-    <!-- Fonte e ícones -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Física ENEM</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
+    body {
+        background: url('https://images.unsplash.com/photo-1606851098045-89dcd2e6a02b?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+        background-size: cover;
+        color: #333;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        min-height:100vh;
+        padding:20px;
+    }
+    header {text-align:center; margin-bottom:40px; background-color: rgba(255,255,255,0.85); padding:20px; border-radius:12px;}
+    header h1 {font-size:2.5rem; color:#1a1a1a;}
+    header p {font-size:1.1rem; color:#555; margin-top:10px;}
+    .grid-container {
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+        gap:25px;
+        width:100%;
+        max-width:1000px;
+    }
+    .card {
+        border-radius:12px;
+        padding:20px;
+        text-align:center;
+        transition: transform 0.4s, box-shadow 0.4s, background-color 0.4s;
+        cursor:pointer;
+        color:#fff;
+        box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    }
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow:0 12px 25px rgba(0,0,0,0.2);
+    }
+    .card i {font-size:3rem; margin-bottom:15px;}
+    .card h2 {font-size:1.3rem; margin-bottom:10px;}
+    .card.classica {background-color:#1abc9c;}
+    .card.moderna {background-color:#3498db;}
+    .card.materiais {background-color:#9b59b6;}
+    .card.simulados {background-color:#e67e22;}
 
-        body {
-            background: url('https://img.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.htm') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    footer {margin-top:50px; color:#fff; font-size:0.9rem; text-align:center; text-shadow: 1px 1px 2px #000;}
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            background-color: rgba(255,255,255,0.85);
-            padding: 20px;
-            border-radius: 12px;
-        }
+    /* Modal */
+    .modal {
+        display:none;
+        position:fixed;
+        z-index:10;
+        left:0; top:0;
+        width:100%; height:100%;
+        background-color: rgba(0,0,0,0.7);
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        animation: fadeIn 0.4s ease;
+    }
+    .modal-content {
+        background-color:#fff;
+        padding:30px;
+        border-radius:12px;
+        max-width:700px;
+        width:100%;
+        position:relative;
+        max-height:80vh;
+        overflow-y:auto;
+        transform: scale(0.8);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    .modal.show .modal-content {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .close {
+        position:absolute;
+        top:15px;
+        right:20px;
+        font-size:1.5rem;
+        cursor:pointer;
+        color:#555;
+    }
+    h3 {margin-top:15px; color:#1a73e8;}
+    p {margin-top:8px; line-height:1.5;}
+    ul {margin-top:8px; padding-left:20px;}
+    a {color:#1a73e8; text-decoration:none;}
+    a:hover {text-decoration:underline;}
 
-        header h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .card {
-            background-color: rgba(255,255,255,0.9);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .card i {
-            font-size: 3rem;
-            color: #1a73e8;
-            margin-bottom: 15px;
-        }
-
-        .card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .card ul {
-            list-style: none;
-        }
-
-        .card ul li {
-            margin: 8px 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        footer {
-            margin-top: 50px;
-            color: #333;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+    @keyframes fadeIn {
+        from {opacity:0;}
+        to {opacity:1;}
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Curso de Física ENEM</h1>
-        <p>Estude de forma prática e direta, com materiais e simulados para você se preparar!</p>
-    </header>
 
-    <div class="grid-container">
-        <!-- Física Clássica -->
-        <div class="card">
-            <i class="fas fa-atom"></i>
-            <h2>Física Clássica</h2>
-            <ul>
-                <li><a href="#">Mecânica</a></li>
-                <li><a href="#">Termodinâmica</a></li>
-                <li><a href="#">Ondulatória</a></li>
-            </ul>
-        </div>
+<header>
+    <h1>Curso de Física ENEM</h1>
+    <p>Estude de forma prática e direta, com materiais e simulados!</p>
+</header>
 
-        <!-- Física Moderna -->
-        <div class="card">
-            <i class="fas fa-lightbulb"></i>
-            <h2>Física Moderna</h2>
-            <ul>
-                <li><a href="#">Relatividade</a></li>
-                <li><a href="#">Física Quântica</a></li>
-                <li><a href="#">Física Nuclear</a></li>
-            </ul>
-        </div>
-
-        <!-- Materiais de Estudo -->
-        <div class="card">
-            <i class="fas fa-book"></i>
-            <h2>Materiais de Estudo</h2>
-            <ul>
-                <li><a href="#">Apostilas</a></li>
-                <li><a href="#">Vídeo aulas</a></li>
-                <li><a href="#">Resumos</a></li>
-            </ul>
-        </div>
-
-        <!-- Simulados -->
-        <div class="card">
-            <i class="fas fa-pencil-alt"></i>
-            <h2>Simulados</h2>
-            <ul>
-                <li><a href="#">Simulado ENEM 2024</a></li>
-                <li><a href="#">Simulado Geral</a></li>
-                <li><a href="#">Resultados e Gabaritos</a></li>
-            </ul>
-        </div>
+<div class="grid-container">
+    <div class="card classica" onclick="openModal('classica')">
+        <i class="fas fa-atom"></i>
+        <h2>Física Clássica</h2>
     </div>
+    <div class="card moderna" onclick="openModal('moderna')">
+        <i class="fas fa-lightbulb"></i>
+        <h2>Física Moderna</h2>
+    </div>
+    <div class="card materiais" onclick="openModal('materiais')">
+        <i class="fas fa-book"></i>
+        <h2>Materiais de Estudo</h2>
+    </div>
+    <div class="card simulados" onclick="openModal('simulados')">
+        <i class="fas fa-pencil-alt"></i>
+        <h2>Simulados</h2>
+    </div>
+</div>
 
-    <footer>
-        Desenvolvido por Lucas - <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a> <br>
-        &copy; 2025 Curso de Física ENEM. Todos os direitos reservados.
-    </footer>
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content" id="modalContent">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalText"></div>
+    </div>
+</div>
+
+<footer>
+    Desenvolvido por Lucas - <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a><br>
+    &copy; 2025 Curso de Física ENEM
+</footer>
+
+<script>
+const modal = document.getElementById('modal');
+const modalContent = document.querySelector('.modal-content');
+const modalText = document.getElementById('modalText');
+
+const conteudos = {
+    classica: `
+        <h2>Física Clássica</h2>
+        <h3>Mecânica</h3>
+        <p>Estuda o movimento dos corpos e as forças que atuam sobre eles. Inclui conceitos como: velocidade, aceleração, leis de Newton, energia e trabalho.</p>
+        <h3>Termodinâmica</h3>
+        <p>Analisa calor, temperatura, energia térmica e transformações de energia. Conceitos: leis da termodinâmica, calorimetria e máquinas térmicas.</p>
+        <h3>Ondulatória</h3>
+        <p>Estuda ondas mecânicas e sonoras. Conceitos: frequência, amplitude, velocidade da onda, interferência e ressonância.</p>
+    `,
+    moderna: `
+        <h2>Física Moderna</h2>
+        <h3>Relatividade</h3>
+        <p>Estuda o comportamento de objetos em velocidades próximas à luz. Conceitos: dilatação do tempo, contração do espaço e equivalência massa-energia.</p>
+        <h3>Física Quântica</h3>
+        <p>Analisa fenômenos em escala atômica e subatômica. Conceitos: dualidade onda-partícula, princípio da incerteza, quantização de energia.</p>
+        <h3>Física Nuclear</h3>
+        <p>Estuda o núcleo dos átomos e suas interações. Conceitos: radioatividade, fissão, fusão e partículas subatômicas.</p>
+    `,
+    materiais: `
+        <h2>Materiais de Estudo</h2>
+        <ul>
+            <li><a href="#">Apostilas completas de Física ENEM</a></li>
+            <li><a href="#">Vídeo aulas explicativas</a></li>
+            <li><a href="#">Resumos prontos para revisão rápida</a></li>
+        </ul>
+    `,
+    simulados: `
+        <h2>Simulados</h2>
+        <ul>
+            <li><a href="#">Simulado ENEM 2024 (PDF)</a></li>
+            <li><a href="#">Simulado Geral de Física</a></li>
+            <li><a href="#">Gabaritos e resolução comentada</a></li>
+        </ul>
+        <p>Faça os simulados para testar seus conhecimentos e acompanhar sua evolução.</p>
+    `
+};
+
+function openModal(tipo) {
+    modal.style.display = 'flex';
+    modalContent.classList.add('show');
+    modalText.innerHTML = conteudos[tipo];
+}
+
+function closeModal() {
+    modalContent.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 300);
+}
+
+// Fechar modal clicando fora
+window.onclick = function(event) {
+    if(event.target === modal) closeModal();
+}
+</script>
+
 </body>
 </html>
