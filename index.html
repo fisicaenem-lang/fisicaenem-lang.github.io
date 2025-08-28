@@ -9,7 +9,7 @@
 <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
     body {
-        background: url('https://images.unsplash.com/photo-1606851098045-89dcd2e6a02b?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+        background: url('https://img.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #333;
         display:flex;
@@ -144,41 +144,42 @@ const modal = document.getElementById('modal');
 const modalContent = document.querySelector('.modal-content');
 const modalText = document.getElementById('modalText');
 
+// Conteúdos com links REAIS
 const conteudos = {
     classica: `
         <h2>Física Clássica</h2>
         <h3>Mecânica</h3>
-        <p>Estuda o movimento dos corpos e as forças que atuam sobre eles. Inclui conceitos como: velocidade, aceleração, leis de Newton, energia e trabalho.</p>
+        <p><a href="https://mundoeducacao.uol.com.br/fisica/mecanica.htm" target="_blank">Resumo de Mecânica (Mundo Educação)</a></p>
         <h3>Termodinâmica</h3>
-        <p>Analisa calor, temperatura, energia térmica e transformações de energia. Conceitos: leis da termodinâmica, calorimetria e máquinas térmicas.</p>
+        <p><a href="https://brasilescola.uol.com.br/fisica/termodinamica.htm" target="_blank">Leis da Termodinâmica (Brasil Escola)</a></p>
         <h3>Ondulatória</h3>
-        <p>Estuda ondas mecânicas e sonoras. Conceitos: frequência, amplitude, velocidade da onda, interferência e ressonância.</p>
+        <p><a href="https://mundoeducacao.uol.com.br/fisica/ondulatoria.htm" target="_blank">Estudo das Ondas (Mundo Educação)</a></p>
     `,
     moderna: `
         <h2>Física Moderna</h2>
         <h3>Relatividade</h3>
-        <p>Estuda o comportamento de objetos em velocidades próximas à luz. Conceitos: dilatação do tempo, contração do espaço e equivalência massa-energia.</p>
+        <p><a href="https://brasilescola.uol.com.br/fisica/teoria-da-relatividade.htm" target="_blank">Teoria da Relatividade</a></p>
         <h3>Física Quântica</h3>
-        <p>Analisa fenômenos em escala atômica e subatômica. Conceitos: dualidade onda-partícula, princípio da incerteza, quantização de energia.</p>
+        <p><a href="https://mundoeducacao.uol.com.br/fisica/fisica-quantica.htm" target="_blank">Princípios da Física Quântica</a></p>
         <h3>Física Nuclear</h3>
-        <p>Estuda o núcleo dos átomos e suas interações. Conceitos: radioatividade, fissão, fusão e partículas subatômicas.</p>
+        <p><a href="https://brasilescola.uol.com.br/fisica/fisica-nuclear.htm" target="_blank">Introdução à Física Nuclear</a></p>
     `,
     materiais: `
         <h2>Materiais de Estudo</h2>
         <ul>
-            <li><a href="#">Apostilas completas de Física ENEM</a></li>
-            <li><a href="#">Vídeo aulas explicativas</a></li>
-            <li><a href="#">Resumos prontos para revisão rápida</a></li>
+            <li><a href="https://www.sistemapoliedro.com.br/blog/apostila-enem-pdf-gratis" target="_blank">📘 Apostila ENEM completa (PDF gratuito)</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PL8bJrQgRX2lSQ8w4N32Zp9XYg-p4N9XrR" target="_blank">🎥 Playlist vídeo aulas de Física ENEM</a></li>
+            <li><a href="https://descomplica.com.br/blog/enem/fisica/" target="_blank">📝 Resumos de Física para ENEM (Descomplica)</a></li>
         </ul>
     `,
     simulados: `
         <h2>Simulados</h2>
+        <p>Escolha um simulado real:</p>
         <ul>
-            <li><a href="#">Simulado ENEM 2024 (PDF)</a></li>
-            <li><a href="#">Simulado Geral de Física</a></li>
-            <li><a href="#">Gabaritos e resolução comentada</a></li>
+            <li><a href="https://download.inep.gov.br/educacao_basica/enem/provas/2022/caderno_de_questoes_enem_2022.pdf" target="_blank">📄 Simulado ENEM 2022 (INEP - PDF Oficial)</a></li>
+            <li><a href="https://projetomedicina.com.br/provas/enem/" target="_blank">📄 Banco de Simulados ENEM - Projeto Medicina</a></li>
+            <li><a href="https://gabaritoenem.com.br/" target="_blank">📄 Gabaritos e Resoluções ENEM</a></li>
         </ul>
-        <p>Faça os simulados para testar seus conhecimentos e acompanhar sua evolução.</p>
     `
 };
 
