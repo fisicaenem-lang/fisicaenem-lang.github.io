@@ -1,0 +1,181 @@
+!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor de Física - ENEM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    /* Banner com imagem de fundo */
+    header {
+      background: url("https://img.freepik.com/fotos-gratis/fundo-de-quadro-negro-com-formulas-matematicas_1232-2148.jpg") no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6); /* camada escura para contraste */
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+
+    nav {
+      background: #1e3a8a;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #1e3a8a;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .cta {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      background: #3b82f6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: #1e3a8a;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Professor de Física - ENEM</h1>
+    <p>Torne a Física simples e conquiste sua aprovação!</p>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#materiais">Materiais</a>
+    <a href="#aulas">Aulas</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section id="sobre">
+    <h2>Sobre mim</h2>
+    <p>Sou <b>Lucas</b>, professor de Física apaixonado por ensinar. Tenho experiência em aulas particulares e preparação para o ENEM. 
+       Meu foco é mostrar que a Física pode ser simples e prática, com estratégias para você ganhar tempo e pontos na prova.</p>
+  </section>
+
+  <section id="materiais">
+    <h2>Materiais gratuitos</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📌 Cinemática</h3>
+        <p>Resumo com fórmulas essenciais e dicas para resolver os exercícios mais comuns.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Eletricidade</h3>
+        <p>Entenda circuitos, Ohm e associações de resistores de forma simples.</p>
+      </div>
+      <div class="card">
+        <h3>🔦 Óptica</h3>
+        <p>Reflexão, refração e lentes em exemplos diretos do ENEM.</p>
+      </div>
+      <div class="card">
+        <h3>🔥 Termodinâmica</h3>
+        <p>Primeira lei, calor e transformações mais cobradas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="aulas">
+    <h2>Aulas particulares</h2>
+    <p style="text-align:center;">
+      ✅ Online ou presenciais<br>
+      ✅ Exercícios comentados do ENEM<br>
+      ✅ Material personalizado<br>
+          </p>
+    <a href="#contato" class="cta">Agendar Aula</a>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p style="text-align:center;">
+      📩 E-mail: <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a><br>
+          </p>
+  </section>
+
+  <footer>
+    <p>© 2025 - Professor de Física para ENEM</p>
+  </footer>
+
+</body>
+</html>
