@@ -1,183 +1,168 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professor de Física - ENEM</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fa;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Física ENEM</title>
+    <!-- Fonte e ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-    /* Banner com imagem de fundo */
-    header {
-      background: url("https://br.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.html#fromView=image+search_similar$page=18position=3&uuid=a779878d-1848-4413-a220-ff7222ffb581&query=fisica+lousa+futurista
-        ") no-repeat center center;
-      background-size: cover;
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6); /* camada escura para contraste */
-    }
-    header h1, header p {
-      position: relative;
-      z-index: 1;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 15px;
-    }
+        body {
+            background: url('https://img.freepik.com/fotos-gratis/composicao-do-conceito-de-numerologia_36291684.htm') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    nav {
-      background: #1e3a8a;
-      padding: 10px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #93c5fd;
-    }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: rgba(255,255,255,0.85);
+            padding: 20px;
+            border-radius: 12px;
+        }
 
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      color: #1e3a8a;
-      margin-bottom: 30px;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 10px;
+        }
 
-    .cta {
-      display: block;
-      width: fit-content;
-      margin: 20px auto;
-      background: #3b82f6;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .cta:hover {
-      background: #1e3a8a;
-    }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
 
-    footer {
-      background: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-  </style>
+        .card {
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #333;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Curso de Física ENEM</h1>
+        <p>Estude de forma prática e direta, com materiais e simulados para você se preparar!</p>
+    </header>
 
-  <header>
-    <h1>Professor de Física - ENEM</h1>
-    <p>Torne a Física simples e conquiste sua aprovação!</p>
-  </header>
+    <div class="grid-container">
+        <!-- Física Clássica -->
+        <div class="card">
+            <i class="fas fa-atom"></i>
+            <h2>Física Clássica</h2>
+            <ul>
+                <li><a href="#">Mecânica</a></li>
+                <li><a href="#">Termodinâmica</a></li>
+                <li><a href="#">Ondulatória</a></li>
+            </ul>
+        </div>
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#materiais">Materiais</a>
-    <a href="#aulas">Aulas</a>
-    <a href="#contato">Contato</a>
-  </nav>
+        <!-- Física Moderna -->
+        <div class="card">
+            <i class="fas fa-lightbulb"></i>
+            <h2>Física Moderna</h2>
+            <ul>
+                <li><a href="#">Relatividade</a></li>
+                <li><a href="#">Física Quântica</a></li>
+                <li><a href="#">Física Nuclear</a></li>
+            </ul>
+        </div>
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Sou <b>Lucas</b>, professor de Física apaixonado por ensinar. Tenho experiência em aulas particulares e preparação para o ENEM. 
-       Meu foco é mostrar que a Física pode ser simples e prática, com estratégias para você ganhar tempo e pontos na prova.</p>
-  </section>
+        <!-- Materiais de Estudo -->
+        <div class="card">
+            <i class="fas fa-book"></i>
+            <h2>Materiais de Estudo</h2>
+            <ul>
+                <li><a href="#">Apostilas</a></li>
+                <li><a href="#">Vídeo aulas</a></li>
+                <li><a href="#">Resumos</a></li>
+            </ul>
+        </div>
 
-  <section id="materiais">
-    <h2>Materiais gratuitos</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>📌 Cinemática</h3>
-        <p>Resumo com fórmulas essenciais e dicas para resolver os exercícios mais comuns.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Eletricidade</h3>
-        <p>Entenda circuitos, Ohm e associações de resistores de forma simples.</p>
-      </div>
-      <div class="card">
-        <h3>🔦 Óptica</h3>
-        <p>Reflexão, refração e lentes em exemplos diretos do ENEM.</p>
-      </div>
-      <div class="card">
-        <h3>🔥 Termodinâmica</h3>
-        <p>Primeira lei, calor e transformações mais cobradas.</p>
-      </div>
+        <!-- Simulados -->
+        <div class="card">
+            <i class="fas fa-pencil-alt"></i>
+            <h2>Simulados</h2>
+            <ul>
+                <li><a href="#">Simulado ENEM 2024</a></li>
+                <li><a href="#">Simulado Geral</a></li>
+                <li><a href="#">Resultados e Gabaritos</a></li>
+            </ul>
+        </div>
     </div>
-  </section>
 
-  <section id="aulas">
-    <h2>Aulas particulares</h2>
-    <p style="text-align:center;">
-      ✅ Online ou presenciais<br>
-      ✅ Exercícios comentados do ENEM<br>
-      ✅ Material personalizado<br>
-          </p>
-    <a href="#contato" class="cta">Agendar Aula</a>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <p style="text-align:center;">
-      📩 E-mail: <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a><br>
-          </p>
-  </section>
-
-  <footer>
-    <p>© 2025 - Professor de Física para ENEM</p>
-  </footer>
-
+    <footer>
+        Desenvolvido por Lucas - <a href="mailto:lucasmduarte@usp.br">lucasmduarte@usp.br</a> <br>
+        &copy; 2025 Curso de Física ENEM. Todos os direitos reservados.
+    </footer>
 </body>
-
 </html>
